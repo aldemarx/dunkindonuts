@@ -12,11 +12,12 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .logo {
     height: 30px;
-    margin-right: 20px; /* Espacio entre el logo y el botón */
+    margin-right: 20px; 
 }
 
 .order-button {
@@ -25,12 +26,12 @@ nav {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 5px; /* Borde redondeado pequeño en las esquinas */
-    width: 250px; /* Ancho fijo para mantener la forma rectangular */
-    text-align: center; /* Centra el texto dentro del botón */
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    overflow: hidden; /* Oculta el desbordamiento del texto */
-    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es demasiado largo */
+    border-radius: 5px; 
+    width: 250px; 
+    text-align: center; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .nav-links {
@@ -71,19 +72,19 @@ nav {
     height: 20px;
 }
 
-/* Estilos para la caja naranja con el texto promocional */
+
 .promo-banner {
-    background-color: #ff9800; /* Color de fondo naranja */
-    color: #fff; /* Color del texto blanco */
-    text-align: center; /* Centra el texto */
-    padding: 10px 0; /* Relleno superior e inferior */
-    font-weight: bold; /* Texto en negrita */
-    font-size: 1.2em; /* Tamaño de fuente más grande */
+    background-color: #ff9800; 
+    color: #fff; 
+    text-align: center; 
+    padding: 10px 0; 
+    font-weight: bold; 
+    font-size: 1.2em; 
 }
 
 .image-banner img {
-    width: 100%; /* Ancho completo del contenedor */
-    height: auto; /* Altura automática para mantener la proporción */
+    width: 100%; 
+    height: auto; 
 }
 
 .categories {
@@ -101,7 +102,7 @@ nav {
 }
 
 .category img {
-    width: 100px; /* Ajusta el tamaño de las imágenes */
+    width: 100px; 
     height: auto;
 }
 
@@ -109,7 +110,7 @@ nav {
     margin-top: 10px;
 }
 
-/* Estilos para el carrusel */
+
 .carousel {
     position: relative;
     padding: 20px 0;
@@ -128,27 +129,27 @@ nav {
 }
 
 .carousel-item {
-    flex: 0 0 50%; /* Ajusta el ancho de las cajas */
+    flex: 0 0 50%; 
     scroll-snap-align: start;
     background-color: #f5f5f5;
     border-radius: 10px;
     padding: 20px;
     width:auto;
-    margin: 0 5px; /* Reduce el margen */
+    margin: 0 5px; 
     position: relative;
     display: flex;
     align-items: center;
 }
 
 .carousel-item img {
-    width: 150px; /* Ajusta el tamaño de las imágenes */
+    width: 150px; 
     height: auto;
     border-radius: 10px;
-    margin-right: 20px; /* Espacio entre la imagen y el texto */
+    margin-right: 20px; 
 }
 
 .carousel-item .carousel-text {
-    text-align: left; /* Alinea el texto a la izquierda */
+    text-align: left; 
 }
 
 .carousel-item .badge {
@@ -254,7 +255,7 @@ nav {
     color: #e91e63;
 }
 
-/* Estilos para el pie de página */
+
 footer {
     background-color: #f5f5f5;
     padding: 20px;
@@ -282,8 +283,8 @@ footer {
 }
 
 .social-icon {
-    width: 50px; /* Ajusta el tamaño de los íconos */
-    height: 30px;
+    width: 50px;
+    height: auto;
 }
 
 .footer-links, .footer-help, .footer-reclamations {
@@ -310,11 +311,19 @@ footer {
     margin: 5px 0;
 }
 
+
 @media (max-width: 600px) {
-    .order-button {
-        width: 100%; /* Ajusta el ancho del botón al 100% del contenedor */
-        padding: 10px; /* Ajusta el relleno para mantener la forma rectangular */
+    nav {
+        justify-content: center; /* Centra el contenido del nav */
     }
+    .logo {
+        margin-right: 0; /* Elimina el margen derecho del logo */
+    }
+    .order-button {
+        width: 100%; 
+        padding: 10px; 
+    }
+    
 
     .categories {
         flex-direction: column;
