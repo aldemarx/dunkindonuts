@@ -16,6 +16,7 @@ nav {
 
 .logo {
     height: 30px;
+    margin-right: 20px; /* Espacio entre el logo y el botón */
 }
 
 .order-button {
@@ -24,9 +25,12 @@ nav {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 0; 
-    width: 250px; 
-    text-align: center; 
+    border-radius: 5px; /* Borde redondeado pequeño en las esquinas */
+    width: 250px; /* Ancho fijo para mantener la forma rectangular */
+    text-align: center; /* Centra el texto dentro del botón */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el desbordamiento del texto */
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es demasiado largo */
 }
 
 .nav-links {
@@ -67,19 +71,19 @@ nav {
     height: 20px;
 }
 
+/* Estilos para la caja naranja con el texto promocional */
 .promo-banner {
-    background-color: #ff9800; 
-    color: #fff;
-    text-align: center; 
-    padding: 10px 0; 
-    font-weight: bold; 
-    font-size: 1.2em; 
+    background-color: #ff9800; /* Color de fondo naranja */
+    color: #fff; /* Color del texto blanco */
+    text-align: center; /* Centra el texto */
+    padding: 10px 0; /* Relleno superior e inferior */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.2em; /* Tamaño de fuente más grande */
 }
 
-
 .image-banner img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
 }
 
 .categories {
@@ -97,7 +101,7 @@ nav {
 }
 
 .category img {
-    width: 100px; 
+    width: 100px; /* Ajusta el tamaño de las imágenes */
     height: auto;
 }
 
@@ -105,11 +109,211 @@ nav {
     margin-top: 10px;
 }
 
+/* Estilos para el carrusel */
+.carousel {
+    position: relative;
+    padding: 20px 0;
+    background-color: #fff;
+}
+
+.carousel h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+    flex: 0 0 50%; /* Ajusta el ancho de las cajas */
+    scroll-snap-align: start;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    width:auto;
+    margin: 0 5px; /* Reduce el margen */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 150px; /* Ajusta el tamaño de las imágenes */
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.carousel-item .carousel-text {
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.carousel-item .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff9800;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.carousel-item h3 {
+    margin: 10px 0;
+}
+
+.carousel-item p {
+    margin: 10px 0;
+}
+
+.carousel-item .price {
+    margin: 10px 0;
+}
+
+.carousel-item .old-price {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.carousel-item .add-to-cart {
+    background-color: #e91e63;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff9800;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+
+.delivery-pickup {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.delivery {
+    background-color: #ff9800;
+    color: #fff;
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.pickup {
+    background-color: #e91e63;
+    color: #fff;
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.delivery-button, .pickup-button {
+    background-color: #fff;
+    color: #ff9800;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.pickup-button {
+    color: #e91e63;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-logo img {
+    height: 50px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 50px; /* Ajusta el tamaño de los íconos */
+    height: 30px;
+}
+
+.footer-links, .footer-help, .footer-reclamations {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-links ul, .footer-help ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-help ul li {
+    margin: 5px 0;
+}
+
+.footer-links ul li a, .footer-help ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-reclamations img {
+    height: 30px;
+    margin: 5px 0;
+}
 
 @media (max-width: 600px) {
     .order-button {
-        width: 100%; 
-        padding: 10px; 
+        width: 100%; /* Ajusta el ancho del botón al 100% del contenedor */
+        padding: 10px; /* Ajusta el relleno para mantener la forma rectangular */
     }
 
     .categories {
@@ -119,5 +323,26 @@ nav {
 
     .category {
         margin-bottom: 10px;
+    }
+
+    .carousel-item {
+        flex: 0 0 90%;
+    }
+
+    .delivery-pickup {
+        flex-direction: column;
+    }
+
+    .delivery, .pickup {
+        margin: 10px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo, .footer-links, .footer-help, .footer-reclamations {
+        margin-bottom: 20px;
     }
 }

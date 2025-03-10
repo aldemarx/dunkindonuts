@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-       <header>
+    <header>
         <nav>
             <img src="logo.png" alt="Dunkin Donuts Logo" class="logo">
             <button class="order-button">¿Cómo deseas recibir tu pedido?</button>
@@ -54,7 +54,6 @@
         <div class="category">
             <img src="c_sandwich.webp" alt="Sandwiches">
             <p>Sandwiches</p>
-
         </div>
         <div class="category">
             <img src="c_otros.webp" alt="Otros">
@@ -65,14 +64,170 @@
             <p>Merch</p>
         </div>
     </div>
-    <main>
-        <section>
-            <h2>Los más vendidos</h2>
-            <p>Lunes de Antojo</p>
-        </section>
-    </main>
+
+    <section class="carousel">
+        <h2>Los más vendidos</h2>
+        <div class="carousel-container">
+            <div class="carousel-item">
+                <div class="badge">58% Off</div>
+                <img src="producto1.webp" alt="Producto 1">
+                <div class="carousel-text">
+                    <h3>Compra 5 Lleva 12 Clásicas</h3>
+                    <p>¡Solo por hoy! Compra 5 y Lleva 12 donuts clásicas a elección</p>
+                    <p class="price"><strong>S/ 27.50</strong> <span class="old-price">S/ 66.00</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="badge">41% Off</div>
+                <img src="producto2.webp" alt="Producto 2">
+                <div class="carousel-text">
+                    <h3>Lunes de Antojo</h3>
+                    <p>8 donuts clásicas a elección.</p>
+                    <p class="price"><strong>S/ 25.90</strong> <span class="old-price">S/ 44.00</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="badge">40% Off</div>
+                <img src="producto3.webp" alt="Producto 3">
+                <div class="carousel-text">
+                    <h3>9 Donuts Sorpresa</h3>
+                    <p>Disfruta de 9 deliciosas donuts aleatorias (mínimo 3 por variedad).</p>
+                    <p class="price"><strong>S/ 29.90</strong> <span class="old-price">S/ 49.50</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+            <!-- Nuevos combos -->
+            <div class="carousel-item">
+                <div class="badge">50% Off</div>
+                <img src="producto4.webp" alt="Producto 4">
+                <div class="carousel-text">
+                    <h3>Combo Familiar</h3>
+                    <p>Incluye 12 donuts variadas y 4 bebidas.</p>
+                    <p class="price"><strong>S/ 45.00</strong> <span class="old-price">S/ 90.00</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="badge">35% Off</div>
+                <img src="producto5.webp" alt="Producto 5">
+                <div class="carousel-text">
+                    <h3>Combo Pareja</h3>
+                    <p>Incluye 6 donuts variadas y 2 bebidas.</p>
+                    <p class="price"><strong>S/ 30.00</strong> <span class="old-price">S/ 46.00</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="badge">25% Off</div>
+                <img src="producto6.webp" alt="Producto 6">
+                <div class="carousel-text">
+                    <h3>Combo Individual</h3>
+                    <p>Incluye 3 donuts variadas y 1 bebida.</p>
+                    <p class="price"><strong>S/ 15.00</strong> <span class="old-price">S/ 20.00</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-button prev">❮</button>
+        <button class="carousel-button next">❯</button>
+    </section>
+
+    <section class="carousel">
+        <h2>Novedades</h2>
+        <div class="carousel-container">
+            <div class="carousel-item">
+                <div class="badge">20% Off</div>
+                <img src="novedad1.webp" alt="Novedad 1">
+                <div class="carousel-text">
+                    <h3>Nueva Donut de Chocolate</h3>
+                    <p>Deliciosa donut de chocolate con relleno de crema.</p>
+                    <p class="price"><strong>S/ 10.00</strong> <span class="old-price">S/ 12.50</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="badge">15% Off</div>
+                <img src="novedad2.webp" alt="Novedad 2">
+                <div class="carousel-text">
+                    <h3>Combo Desayuno</h3>
+                    <p>Incluye 1 donut, 1 café y 1 jugo.</p>
+                    <p class="price"><strong>S/ 18.00</strong> <span class="old-price">S/ 21.00</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="badge">30% Off</div>
+                <img src="novedad3.webp" alt="Novedad 3">
+                <div class="carousel-text">
+                    <h3>Pack de 6 Donuts</h3>
+                    <p>6 donuts variadas a un precio especial.</p>
+                    <p class="price"><strong>S/ 25.00</strong> <span class="old-price">S/ 35.00</span></p>
+                    <button class="add-to-cart">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-button prev">❮</button>
+        <button class="carousel-button next">❯</button>
+    </section>
+
+    <section class="delivery-pickup">
+        <div class="delivery">
+            <h2>Delivery</h2>
+            <p>¡Pide tus Donuts y Bebidas favoritas!</p>
+            <button class="delivery-button">INGRESA TU DIRECCIÓN</button>
+        </div>
+        <div class="pickup">
+            <h2>Retiro en local</h2>
+            <p>¡Encuentra el local más cercano!</p>
+            <button class="pickup-button">ENCUENTRA TU LOCAL</button>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
     <footer>
-        <p>&copy; 2025 Dunkin Donuts Peru. Todos los derechos reservados</p>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="Dunkin Donuts Logo">
+                <p>Conéctate con nosotros</p>
+                <div class="social-icons">
+                    <a href="#"><img src="x.png" alt="Twitter" class="social-icon"></a>
+                    <a href="#"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+                    <a href="#"><img src="facebook.png" alt="Facebook" class="social-icon"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Nuestros Productos</h3>
+                <ul>
+                    <li><a href="#">Donuts</a></li>
+                    <li><a href="#">Bebidas</a></li>
+                    <li><a href="#">Combos</a></li>
+                    <li><a href="#">Bakery</a></li>
+                    <li><a href="#">Sandwich</a></li>
+                    <li><a href="#">Complementos</a></li>
+                    <li><a href="#">Novedades</a></li>
+                </ul>
+            </div>
+            <div class="footer-help">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Comprobante Electrónico</a></li>
+                    <li><a href="#">Políticas de datos personales</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Derecho de Arco</a></li>
+                    <li><a href="#">Zonas de Reparto</a></li>
+                </ul>
+            </div>
+            <div class="footer-reclamations">
+                <h3>Libro de reclamaciones</h3>
+                <img src="libro-de-reclamaciones.webp" alt="Libro de Reclamaciones">
+                <h3>Métodos de Pago</h3>
+                <img src="visa.webp" alt="Visa">
+                <img src="mastercard.webp" alt="MasterCard">
+                <img src="amex.webp" alt="American Express">
+            </div>
+        </div>
     </footer>
 </body>
 </html>
