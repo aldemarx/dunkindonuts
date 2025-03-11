@@ -1,4 +1,4 @@
-/* Base styles and resets */
+/* Estilos Básicos */
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +31,7 @@ button {
     transition: all 0.3s ease;
 }
 
-/* Header styles */
+/* Header */
 header {
     background-color: #fff;
     padding: 10px 20px;
@@ -146,7 +146,7 @@ nav {
     height: 20px;
 }
 
-/* Promo banner */
+/* Banners Promoción */
 .promo-banner {
     background-color: #ff9800;
     color: #fff;
@@ -176,7 +176,7 @@ nav {
     }
 }
 
-/* Image banner */
+
 .image-banner {
     width: 100%;
     overflow: hidden;
@@ -192,7 +192,7 @@ nav {
     transform: scale(1.02);
 }
 
-/* Categories section */
+/* Categories*/
 .categories-section {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -240,7 +240,7 @@ nav {
     margin-top: 10px;
 }
 
-/* Carousel styles */
+/* Carousel */
 .carousel {
     position: relative;
     padding: 40px 20px;
@@ -413,7 +413,7 @@ nav {
     right: 10px;
 }
 
-/* Delivery and pickup section */
+/* Delivery */
 .delivery-pickup {
     display: flex;
     justify-content: space-between;
@@ -474,7 +474,7 @@ nav {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Footer styles */
+/* Pie de Pagina */
 footer {
     background-color: #f5f5f5;
     padding: 40px 20px 20px;
@@ -577,7 +577,6 @@ footer {
     color: #777;
 }
 
-/* Media Queries */
 @media (max-width: 992px) {
     .carousel-item {
         flex: 0 0 calc(70% - 20px);
