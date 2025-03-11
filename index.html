@@ -5,183 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dunkin Donuts Proyecto</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
             <img src="logo.png" alt="Dunkin Donuts Logo" class="logo">
-            <button class="order-button">¿Cómo deseas recibir tu pedido?</button>
+            <button class="order-button" id="orderTypeButton">¿Cómo deseas recibir tu pedido?</button>
             <ul class="nav-links">
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#pedidos">Mis Pedidos</a></li>
                 <li><a href="#locales">Locales</a></li>
             </ul>
             <div class="contact-info">
-                <span>Llámanos: 01 - 633 - 3333</span>
-                <a href="#login">Iniciar Sesión</a>
-                <div class="cart">
-                    <span>S/ 0.00</span>
+                <span>Llámanos: <a href="tel:016333333" class="phone-number">01-633-3333</a></span>
+                <a href="#login" id="loginButton">Iniciar Sesión</a>
+                <div class="cart" id="cartButton">
+                    <span id="cartTotal">S/ 0.00</span>
                     <img src="cart.png" alt="Carrito de Compras">
                 </div>
             </div>
         </nav>
     </header>
-    <div class="promo-banner">
+    
+    <div class="promo-banner" id="promoBanner">
         Hoy Tazas Minion a S/19.90 ¡Más de 30% de dcto!
     </div>
     
     <div class="image-banner">
-        <img src="banner.webp" alt="Banner Promocional">
+        <img src="banner.webp" alt="Banner Promocional de Dunkin Donuts">
     </div>
 
-    <div class="categories">
-        <div class="category">
-            <img src="c_donut.webp" alt="Donuts">
-            <p>Donuts</p>
+    <section class="categories-section">
+        <div class="categories">
+            <div class="category" data-category="donuts">
+                <img src="c_donut.webp" alt="Categoría de Donuts">
+                <p>Donuts</p>
+            </div>
+            <div class="category" data-category="combos">
+                <img src="c_combo.webp" alt="Categoría de Combos y Boxes">
+                <p>Combos y Boxes</p>
+            </div>
+            <div class="category" data-category="bebidas-frias">
+                <img src="c_bebidacold.webp" alt="Categoría de Bebidas Frías">
+                <p>Bebidas Frías</p>
+            </div>
+            <div class="category" data-category="bebidas-calientes">
+                <img src="c_bebidahot.webp" alt="Categoría de Bebidas Calientes">
+                <p>Bebidas Calientes</p>
+            </div>
+            <div class="category" data-category="sandwiches">
+                <img src="c_sandwich.webp" alt="Categoría de Sandwiches">
+                <p>Sandwiches</p>
+            </div>
+            <div class="category" data-category="otros">
+                <img src="c_otros.webp" alt="Categoría de Otros Productos">
+                <p>Otros</p>
+            </div>
+            <div class="category" data-category="merch">
+                <img src="c_merch.webp" alt="Categoría de Merchandise">
+                <p>Merch</p>
+            </div>
         </div>
-        <div class="category">
-            <img src="c_combo.webp" alt="Combos y Boxes">
-            <p>Combos y Boxes</p>
-        </div>
-        <div class="category">
-            <img src="c_bebidacold.webp" alt="Bebidas Frías">
-            <p>Bebidas Frías</p>
-        </div>
-        <div class="category">
-            <img src="c_bebidahot.webp" alt="Bebidas Calientes">
-            <p>Bebidas Calientes</p>
-        </div>
-        <div class="category">
-            <img src="c_sandwich.webp" alt="Sandwiches">
-            <p>Sandwiches</p>
-        </div>
-        <div class="category">
-            <img src="c_otros.webp" alt="Otros">
-            <p>Otros</p>
-        </div>
-        <div class="category">
-            <img src="c_merch.webp" alt="Merch">
-            <p>Merch</p>
-        </div>
-    </div>
+    </section>
 
-    <section class="carousel">
+    <section class="carousel" id="bestsellersCarousel">
         <h2>Los más vendidos</h2>
         <div class="carousel-container">
             <div class="carousel-item">
                 <div class="badge">58% Off</div>
-                <img src="producto1.webp" alt="Producto 1">
+                <img src="producto1.webp" alt="Oferta 5 por 12 Donuts Clásicas">
                 <div class="carousel-text">
                     <h3>Compra 5 Lleva 12 Clásicas</h3>
                     <p>¡Solo por hoy! Compra 5 y Lleva 12 donuts clásicas a elección</p>
                     <p class="price"><strong>S/ 27.50</strong> <span class="old-price">S/ 66.00</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="combo-5-12">Agregar al carrito</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="badge">41% Off</div>
-                <img src="producto2.webp" alt="Producto 2">
+                <img src="producto2.webp" alt="Lunes de Antojo 8 Donuts">
                 <div class="carousel-text">
                     <h3>Lunes de Antojo</h3>
                     <p>8 donuts clásicas a elección.</p>
                     <p class="price"><strong>S/ 25.90</strong> <span class="old-price">S/ 44.00</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="lunes-antojo">Agregar al carrito</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="badge">40% Off</div>
-                <img src="producto3.webp" alt="Producto 3">
+                <img src="producto3.webp" alt="9 Donuts Sorpresa">
                 <div class="carousel-text">
                     <h3>9 Donuts Sorpresa</h3>
                     <p>Disfruta de 9 deliciosas donuts aleatorias (mínimo 3 por variedad).</p>
                     <p class="price"><strong>S/ 29.90</strong> <span class="old-price">S/ 49.50</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="9-sorpresa">Agregar al carrito</button>
                 </div>
             </div>
-            <!-- Nuevos combos -->
             <div class="carousel-item">
                 <div class="badge">50% Off</div>
-                <img src="producto4.webp" alt="Producto 4">
+                <img src="producto4.webp" alt="Combo Familiar">
                 <div class="carousel-text">
                     <h3>Combo Familiar</h3>
                     <p>Incluye 12 donuts variadas y 4 bebidas.</p>
                     <p class="price"><strong>S/ 45.00</strong> <span class="old-price">S/ 90.00</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="combo-familiar">Agregar al carrito</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="badge">35% Off</div>
-                <img src="producto5.webp" alt="Producto 5">
+                <img src="producto5.webp" alt="Combo Pareja">
                 <div class="carousel-text">
                     <h3>Combo Pareja</h3>
                     <p>Incluye 6 donuts variadas y 2 bebidas.</p>
                     <p class="price"><strong>S/ 30.00</strong> <span class="old-price">S/ 46.00</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="combo-pareja">Agregar al carrito</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="badge">25% Off</div>
-                <img src="producto6.webp" alt="Producto 6">
+                <img src="producto6.webp" alt="Combo Individual">
                 <div class="carousel-text">
                     <h3>Combo Individual</h3>
                     <p>Incluye 3 donuts variadas y 1 bebida.</p>
                     <p class="price"><strong>S/ 15.00</strong> <span class="old-price">S/ 20.00</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="combo-individual">Agregar al carrito</button>
                 </div>
             </div>
         </div>
-        <button class="carousel-button prev">❮</button>
-        <button class="carousel-button next">❯</button>
+        <button class="carousel-button prev" aria-label="Anterior">❮</button>
+        <button class="carousel-button next" aria-label="Siguiente">❯</button>
     </section>
 
-    <section class="carousel">
+    <section class="carousel" id="newItemsCarousel">
         <h2>Novedades</h2>
         <div class="carousel-container">
             <div class="carousel-item">
                 <div class="badge">20% Off</div>
-                <img src="novedad1.webp" alt="Novedad 1">
+                <img src="novedad1.webp" alt="Nueva Donut de Chocolate">
                 <div class="carousel-text">
                     <h3>Nueva Donut de Chocolate</h3>
                     <p>Deliciosa donut de chocolate con relleno de crema.</p>
                     <p class="price"><strong>S/ 10.00</strong> <span class="old-price">S/ 12.50</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="donut-chocolate">Agregar al carrito</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="badge">15% Off</div>
-                <img src="novedad2.webp" alt="Novedad 2">
+                <img src="novedad2.webp" alt="Combo Desayuno">
                 <div class="carousel-text">
                     <h3>Combo Desayuno</h3>
                     <p>Incluye 1 donut, 1 café y 1 jugo.</p>
                     <p class="price"><strong>S/ 18.00</strong> <span class="old-price">S/ 21.00</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="combo-desayuno">Agregar al carrito</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="badge">30% Off</div>
-                <img src="novedad3.webp" alt="Novedad 3">
+                <img src="novedad3.webp" alt="Pack de 6 Donuts">
                 <div class="carousel-text">
                     <h3>Pack de 6 Donuts</h3>
                     <p>6 donuts variadas a un precio especial.</p>
                     <p class="price"><strong>S/ 25.00</strong> <span class="old-price">S/ 35.00</span></p>
-                    <button class="add-to-cart">Agregar al carrito</button>
+                    <button class="add-to-cart" data-product="pack-6-donuts">Agregar al carrito</button>
                 </div>
             </div>
         </div>
-        <button class="carousel-button prev">❮</button>
-        <button class="carousel-button next">❯</button>
+        <button class="carousel-button prev" aria-label="Anterior">❮</button>
+        <button class="carousel-button next" aria-label="Siguiente">❯</button>
     </section>
 
     <section class="delivery-pickup">
         <div class="delivery">
             <h2>Delivery</h2>
             <p>¡Pide tus Donuts y Bebidas favoritas!</p>
-            <button class="delivery-button">INGRESA TU DIRECCIÓN</button>
+            <button class="delivery-button" id="deliveryButton">INGRESA TU DIRECCIÓN</button>
         </div>
         <div class="pickup">
             <h2>Retiro en local</h2>
             <p>¡Encuentra el local más cercano!</p>
-            <button class="pickup-button">ENCUENTRA TU LOCAL</button>
+            <button class="pickup-button" id="pickupButton">ENCUENTRA TU LOCAL</button>
         </div>
     </section>
 
@@ -191,9 +194,9 @@
                 <img src="logo.png" alt="Dunkin Donuts Logo">
                 <p>Conéctate con nosotros</p>
                 <div class="social-icons">
-                    <a href="#"><img src="x.png" alt="Twitter" class="social-icon"></a>
-                    <a href="#"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
-                    <a href="#"><img src="facebook.png" alt="Facebook" class="social-icon"></a>
+                    <a href="#" aria-label="Twitter"><img src="x.png" alt="Twitter" class="social-icon"></a>
+                    <a href="#" aria-label="Instagram"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+                    <a href="#" aria-label="Facebook"><img src="facebook.png" alt="Facebook" class="social-icon"></a>
                 </div>
             </div>
             <div class="footer-links">
@@ -220,12 +223,17 @@
             </div>
             <div class="footer-reclamations">
                 <h3>Libro de reclamaciones</h3>
-                <img src="libro-de-reclamaciones.webp" alt="Libro de Reclamaciones">
+                <a href="#reclamaciones"><img src="libro-de-reclamaciones.webp" alt="Libro de Reclamaciones"></a>
                 <h3>Métodos de Pago</h3>
-                <img src="visa.webp" alt="Visa">
-                <img src="mastercard.webp" alt="MasterCard">
-                <img src="amex.webp" alt="American Express">
+                <div class="payment-methods">
+                    <img src="visa.webp" alt="Visa">
+                    <img src="mastercard.webp" alt="MasterCard">
+                    <img src="amex.webp" alt="American Express">
+                </div>
             </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Dunkin Donuts Perú. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
