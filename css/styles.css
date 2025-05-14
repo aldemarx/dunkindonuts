@@ -746,7 +746,7 @@ footer {
 }
 
 .pickup-button {
-  background-color: #e91e63;
+  background-color: #b80a44;
 }
 
 /* Prevenir scroll del body cuando el menú está abierto */
@@ -759,4 +759,53 @@ body.menu-open {
   .menu-toggle {
     display: none; /* Opcional: oculta el botón en pantallas grandes si tienes otro menú */
   }
+}
+.menu-toggle {
+  display: none; /* Oculto por defecto en pantallas grandes */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  /* Ocultar elementos de navegación estándar en móvil */
+  .nav-links, 
+  .contact-info,
+  .order-button {
+    display: none !important; /* Aseguramos que se ocultan en móvil */
+  }
+  
+  /* Mostrar botón de menú hamburguesa en móvil */
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Ajustes para el header en móvil */
+  nav {
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+  
+  /* Centrar logo en navegación móvil */
+  .logo {
+    margin: 0 auto;
+  }
+}
+
+/* Mejorar el diseño del menú lateral */
+.side-menu {
+  width: 280px;
+  left: -300px; /* Empezar fuera de la pantalla */
+}
+
+.side-menu.active {
+  left: 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mejorar transición del overlay */
+.menu-overlay {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }

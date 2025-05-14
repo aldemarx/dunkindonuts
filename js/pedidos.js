@@ -49,7 +49,7 @@ function loadSavedCartItems() {
                 <img src="empty-cart.png" alt="Carrito vacío" class="empty-icon">
                 <h2>Tu carrito está vacío</h2>
                 <p>No tienes productos guardados en tu carrito</p>
-                <a href="index.html" class="order-now-button">Explorar Productos</a>
+                <a href="index.html" class="order-now-button">Explorar productos</a>
             </div>
         `;
         
@@ -154,13 +154,13 @@ function loadOrderHistory() {
                     title: 'Donuts Clásicas x6', 
                     price: 27.50, 
                     quantity: 1,
-                    imgSrc: 'Assets/images/Productos/producto1.webp'
+                    imgSrc: 'assets/images/productos/producto1.webp'
                 },
                 { 
                     title: 'Lunes de dulzura', 
                     price: 36.90, 
                     quantity: 1,
-                    imgSrc: 'Assets/images/Productos/producto2.webp'
+                    imgSrc: 'assets/images/productos/producto2.webp'
                 }
             ],
             total: 64.40
@@ -174,7 +174,7 @@ function loadOrderHistory() {
                     title: 'Duo Dunkin', 
                     price: 20.90, 
                     quantity: 2,
-                    imgSrc: 'Assets/images/Productos/producto4.webp'
+                    imgSrc: 'assets/images/productos/producto4.webp'
                 }
             ],
             total: 41.80
@@ -325,7 +325,7 @@ function reorderItems(items) {
     });
     
     // Mostrar mensaje de confirmación
-    alert('Productos agregados al carrito correctamente');
+    alert('productos agregados al carrito correctamente');
     
     // Abrir el carrito
     if (window.shoppingCart.toggleCartPanel) {
