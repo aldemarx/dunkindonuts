@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pedidos - Dunkin Donuts</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/cart-styles.css">
+    <link rel="stylesheet" href="CSS/pedidos-styles.css">
+    <script src="JS/cart.js" defer></script>
+    <script src="JS/pedidos.js" defer></script>
+    <link rel="icon" href="images/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+            <img src="Assets/images/logo.png" alt="Dunkin Donuts Logo" class="logo"></a>
+            <button class="order-button" id="orderTypeButton">Realiza tu pedido</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="mis-pedidos.html" class="active">Mis Pedidos</a></li>
+                <li><a href="locales.html">Locales</a></li>
+            </ul>
+            <div class="contact-info">
+                <span>Llámanos: <a href="tel:016333333" class="phone-number">01-633-3333</a></span>
+                <a href="#login" id="loginButton">Iniciar Sesión</a>
+                <div class="cart" id="cartButton">
+                    <span id="cartTotal">S/ 0.00</span>
+                    <img src="Assets/images/icons/cart.png" alt="Carrito de Compras">
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="promo-banner" id="promoBanner">
+        Hoy Tazas Minion a S/19.90 ¡Más de 30% de dcto!
+    </div>
+    
+    <main class="pedidos-container">
+        <h1 class="page-title">Mis Pedidos</h1>
+        
+        <div class="pedidos-tabs">
+            <button class="tab-button active" data-tab="active-orders">Pedidos Activos</button>
+            <button class="tab-button" data-tab="order-history">Historial de Pedidos</button>
+            <button class="tab-button" data-tab="saved-cart">Carrito Guardado</button>
+        </div>
+        
+        <div class="tab-content active" id="active-orders">
+            <div class="no-orders-message">
+                <img src="empty-orders.png" alt="No hay pedidos activos" class="empty-icon">
+                <h2>No tienes pedidos activos</h2>
+                <p>¡Haz tu primer pedido y disfruta de nuestros deliciosos productos!</p>
+                <a href="index.html" class="order-now-button">Ordenar Ahora</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="order-history">
+            <div class="order-filters">
+                <select id="dateFilter" class="filter-select">
+                    <option value="all">Todas las fechas</option>
+                    <option value="month">Último mes</option>
+                    <option value="3months">Últimos 3 meses</option>
+                    <option value="6months">Últimos 6 meses</option>
+                </select>
+                
+                <div class="search-box">
+                    <input type="text" id="orderSearch" placeholder="Buscar por producto o número de pedido">
+                    <button id="searchButton">Buscar</button>
+                </div>
+            </div>
+            
+            <div class="orders-list" id="ordersHistoryList">
+                <!-- Los pedidos pasados se cargarán aquí desde el JavaScript -->
+            </div>
+        </div>
+        
+        <div class="tab-content" id="saved-cart">
+            <div class="saved-cart-container">
+                <h2>Carrito Guardado</h2>
+                <div id="savedCartItems" class="saved-cart-items">
+                    <!-- Los elementos del carrito guardado se cargarán aquí -->
+                </div>
+                
+                <div class="saved-cart-actions">
+                    <button id="clearSavedCart" class="secondary-button">Vaciar Carrito</button>
+                    <button id="restoreSavedCart" class="primary-button">Continuar con este Pedido</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="Assets/images/logo.png" alt="Dunkin Donuts Logo">
+                <p>Conéctate con nosotros</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><img src="Assets/images/Icons/x.png" alt="Twitter" class="social-icon"></a>
+                    <a href="#" aria-label="Instagram"><img src="Assets/images/Icons/instagram.png" alt="Instagram" class="social-icon"></a>
+                    <a href="#" aria-label="Facebook"><img src="Assets/images/Icons/facebook.png" alt="Facebook" class="social-icon"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Nuestros Productos</h3>
+                <ul>
+                    <li><a href="#">Donuts</a></li>
+                    <li><a href="#">Bebidas</a></li>
+                    <li><a href="#">Combos</a></li>
+                    <li><a href="#">Bakery</a></li>
+                    <li><a href="#">Sandwich</a></li>
+                    <li><a href="#">Complementos</a></li>
+                    <li><a href="#">Novedades</a></li>
+                </ul>
+            </div>
+            <div class="footer-help">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Comprobante Electrónico</a></li>
+                    <li><a href="#">Políticas de datos personales</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Derecho de Arco</a></li>
+                    <li><a href="#">Zonas de Reparto</a></li>
+                </ul>
+            </div>
+            <div class="footer-reclamations">
+                <h3>Libro de reclamaciones</h3>
+                <a href="#reclamaciones"><img src="Assets/images/Icons/libro-de-reclamaciones.webp" alt="Libro de Reclamaciones"></a>
+                <h3>Métodos de Pago</h3>
+                <div class="payment-methods">
+                    <img src="Assets/images/Icons/visa.webp" alt="Visa">
+                    <img src="Assets/images/Icons/mastercard.webp" alt="MasterCard">
+                    <img src="Assets/images/Icons/amex.webp" alt="American Express">
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Dunkin Donuts Perú. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

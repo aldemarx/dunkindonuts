@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Locales - Dunkin Donuts</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/cart-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="JS/script.js" defer></script>
+    <script src="JS/cart.js" defer></script>
+    <link rel="icon" href="Assets/logo.ico" type="image/x-icon">
+    <style>
+        /* Estilos específicos para la página de locales */
+        .locales-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #e91e63;
+        }
+
+        .filtro-locales {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filtro-btn {
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .filtro-btn:hover, .filtro-btn.active {
+            background-color: #e91e63;
+            color: white;
+            border-color: #e91e63;
+        }
+
+        .locales-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .local-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .local-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .local-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .local-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .local-card:hover .local-img img {
+            transform: scale(1.05);
+        }
+
+        .local-info {
+            padding: 20px;
+        }
+
+        .local-name {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #e91e63;
+        }
+
+        .local-address {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .local-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .local-hours, .local-phone {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .local-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-local {
+            padding: 10px 0;
+            flex: 1;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-mapa {
+            background-color: #e91e63;
+            color: white;
+        }
+
+        .btn-mapa:hover {
+            background-color: #c2185b;
+        }
+
+        .btn-ordenar {
+            background-color: #FF671F;
+            color: white;
+        }
+
+        .btn-ordenar:hover {
+            background-color: #E05200;
+        }
+
+        .mapa-container {
+            margin: 30px 0;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .mapa-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .locales-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .local-img {
+                height: 180px;
+            }
+            
+            .mapa-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <button id="menuToggle" class="menu-toggle">☰</button>
+            <a href="index.html">
+    <img src="Assets/images/logo.png" alt="Dunkin Donuts Logo" class="logo"></a>
+            <button class="order-button" id="orderTypeButton">Realiza tu pedido</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="mis_pedidos.html">Mis Pedidos</a></li>
+                <li><a href="locales.html" class="active">Locales</a></li>
+            </ul>
+            <div class="contact-info">
+                <span>Llámanos: <a href="tel:016333333" class="phone-number">01-633-3333</a></span>
+                <a href="#login" id="loginButton">Iniciar Sesión</a>
+                <div class="cart" id="cartButton">
+                    <span id="cartTotal">S/ 0.00</span>
+                    <img src="Assets/images/Icons/cart.png" alt="Carrito de Compras">
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div id="menuOverlay" class="menu-overlay"></div>
+    
+    <div id="sideMenu" class="side-menu">
+        <div class="side-menu-header">
+            <img src="Assets/images/logo.png" alt="Dunkin Donuts Logo" class="side-menu-logo">
+            <button id="closeMenu" class="close-menu">×</button>
+        </div>
+        
+        <ul class="side-menu-items">
+            <li><a href="index.html"><span class="menu-icon"><i class="bi bi-grid"></i></span> Menu</a></li>
+            <li><a href="mis_pedidos.html"><span class="menu-icon"><i class="bi bi-cart3"></i></span> Mis pedidos</a></li>
+            <li><a href="locales.html"><span class="menu-icon"><i class="bi bi-shop"></i></span> Locales</a></li>
+            <li><a href="#cuenta"><span class="menu-icon"><i class="bi bi-person"></i></span> Mi cuenta</a></li>
+            <li class="menu-phone"><a href="tel:016333333"><span class="menu-icon"><i class="bi bi-telephone"></i></span> Llámanos<br>01 - 633 - 3333</a></li>
+        </ul>
+        
+        <div class="side-menu-footer">
+            <a href="#delivery" class="delivery-button">DELIVERY</a>
+            <a href="#pickup" class="pickup-button">RETIRO EN TIENDA</a>
+        </div>
+    </div>
+    
+    <div class="promo-banner" id="promoBanner">
+        Hoy Tazas Minion a S/19.90 ¡Más de 30% de dcto!
+    </div>
+    
+    <main class="locales-container">
+        <h1 class="page-title">Nuestros Locales</h1>
+        
+        <div class="filtro-locales">
+            <button class="filtro-btn active" data-filter="todos">Todos los locales</button>
+            <button class="filtro-btn" data-filter="lima">Lima</button>
+            <button class="filtro-btn" data-filter="provincias">Provincias</button>
+            <button class="filtro-btn" data-filter="abiertos">Abiertos ahora</button>
+        </div>
+        
+        <div class="locales-grid">
+            <!-- Local 1 -->
+            <div class="local-card" data-zona="lima">
+                <div class="local-img">
+                    <img src="Assets/images/locales/local1.webp" alt="Dunkin Donuts Miraflores">
+                </div>
+                <div class="local-info">
+                    <h3 class="local-name">Dunkin' Miraflores</h3>
+                    <p class="local-address">Av. Larco 780, Miraflores, Lima</p>
+                    <div class="local-details">
+                        <span class="local-hours">8:00 AM - 10:00 PM</span>
+                        <span class="local-phone">01-422-3890</span>
+                    </div>
+                    <div class="local-actions">
+                        <a href="https://maps.app.goo.gl/EJEMPLO" class="btn-local btn-mapa" target="_blank">Ver en mapa</a>
+                        <a href="#" class="btn-local btn-ordenar">Ordenar aquí</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Local 2 -->
+            <div class="local-card" data-zona="lima">
+                <div class="local-img">
+                    <img src="Assets/images/locales/local2.webp" alt="Dunkin Donuts San Isidro">
+                </div>
+                <div class="local-info">
+                    <h3 class="local-name">Dunkin' San Isidro</h3>
+                    <p class="local-address">Av. República de Panamá 3055, San Isidro, Lima</p>
+                    <div class="local-details">
+                        <span class="local-hours">7:00 AM - 9:00 PM</span>
+                        <span class="local-phone">01-422-5670</span>
+                    </div>
+                    <div class="local-actions">
+                        <a href="https://maps.app.goo.gl/EJEMPLO" class="btn-local btn-mapa" target="_blank">Ver en mapa</a>
+                        <a href="#" class="btn-local btn-ordenar">Ordenar aquí</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Local 3 -->
+            <div class="local-card" data-zona="lima">
+                <div class="local-img">
+                    <img src="Assets/images/locales/local3.webp" alt="Dunkin Donuts Surco">
+                </div>
+                <div class="local-info">
+                    <h3 class="local-name">Dunkin' Chacarilla</h3>
+                    <p class="local-address">Av. Primavera 1870, Santiago de Surco, Lima</p>
+                    <div class="local-details">
+                        <span class="local-hours">7:30 AM - 10:30 PM</span>
+                        <span class="local-phone">01-372-8940</span>
+                    </div>
+                    <div class="local-actions">
+                        <a href="https://maps.app.goo.gl/EJEMPLO" class="btn-local btn-mapa" target="_blank">Ver en mapa</a>
+                        <a href="#" class="btn-local btn-ordenar">Ordenar aquí</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Local 4 -->
+            <div class="local-card" data-zona="provincias">
+                <div class="local-img">
+                    <img src="Assets/images/locales/local4.webp" alt="Dunkin Donuts Arequipa">
+                </div>
+                <div class="local-info">
+                    <h3 class="local-name">Dunkin' Arequipa</h3>
+                    <p class="local-address">Av. Ejército 793, Cayma, Arequipa</p>
+                    <div class="local-details">
+                        <span class="local-hours">8:00 AM - 9:00 PM</span>
+                        <span class="local-phone">054-272-456</span>
+                    </div>
+                    <div class="local-actions">
+                        <a href="https://maps.app.goo.gl/EJEMPLO" class="btn-local btn-mapa" target="_blank">Ver en mapa</a>
+                        <a href="#" class="btn-local btn-ordenar">Ordenar aquí</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Local 5 -->
+            <div class="local-card" data-zona="provincias">
+                <div class="local-img">
+                    <img src="Assets/images/locales/local5.webp" alt="Dunkin Donuts Piura">
+                </div>
+                <div class="local-info">
+                    <h3 class="local-name">Dunkin' Piura</h3>
+                    <p class="local-address">C.C. Real Plaza, Av. Sánchez Cerro 234, Piura</p>
+                    <div class="local-details">
+                        <span class="local-hours">9:00 AM - 10:00 PM</span>
+                        <span class="local-phone">073-302-567</span>
+                    </div>
+                    <div class="local-actions">
+                        <a href="https://maps.app.goo.gl/EJEMPLO" class="btn-local btn-mapa" target="_blank">Ver en mapa</a>
+                        <a href="#" class="btn-local btn-ordenar">Ordenar aquí</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Local 6 -->
+            <div class="local-card" data-zona="provincias">
+                <div class="local-img">
+                    <img src="Assets/images/locales/local6.webp" alt="Dunkin Donuts Cusco">
+                </div>
+                <div class="local-info">
+                    <h3 class="local-name">Dunkin' Cusco</h3>
+                    <p class="local-address">Av. La Cultura 1628, Wanchaq, Cusco</p>
+                    <div class="local-details">
+                        <span class="local-hours">7:00 AM - 9:00 PM</span>
+                        <span class="local-phone">084-221-789</span>
+                    </div>
+                    <div class="local-actions">
+                        <a href="https://maps.app.goo.gl/EJEMPLO" class="btn-local btn-mapa" target="_blank">Ver en mapa</a>
+                        <a href="#" class="btn-local btn-ordenar">Ordenar aquí</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mapa-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1750770160366!2d-76.95565308582186!3d-12.094640146365207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7c609598c51%3A0x8d686ddf03054da5!2sDunkin&#39;%20Donuts!5e0!3m2!1ses-419!2spe!4v1715713523805!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="Assets/images/logo.png" alt="Dunkin Donuts Logo">
+                <p>Conéctate con nosotros</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><img src="Assets/images/Icons/x.png" alt="Twitter" class="social-icon"></a>
+                    <a href="#" aria-label="Instagram"><img src="Assets/images/Icons/instagram.png" alt="Instagram" class="social-icon"></a>
+                    <a href="#" aria-label="Facebook"><img src="Assets/images/Icons/facebook.png" alt="Facebook" class="social-icon"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Nuestros Productos</h3>
+                <ul>
+                    <li><a href="#">Donuts</a></li>
+                    <li><a href="#">Bebidas</a></li>
+                    <li><a href="#">Combos</a></li>
+                    <li><a href="#">Bakery</a></li>
+                    <li><a href="#">Sandwich</a></li>
+                    <li><a href="#">Complementos</a></li>
+                    <li><a href="#">Novedades</a></li>
+                </ul>
+            </div>
+            <div class="footer-help">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Comprobante Electrónico</a></li>
+                    <li><a href="#">Políticas de datos personales</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Derecho de Arco</a></li>
+                    <li><a href="#">Zonas de Reparto</a></li>
+                </ul>
+            </div>
+            <div class="footer-reclamations">
+                <h3>Libro de reclamaciones</h3>
+                <a href="#reclamaciones"><img src="Assets/images/Icons/libro-de-reclamaciones.webp" alt="Libro de Reclamaciones"></a>
+                <h3>Métodos de Pago</h3>
+                <div class="payment-methods">
+                    <img src="Assets/images/Icons/visa.webp" alt="Visa">
+                    <img src="Assets/images/Icons/mastercard.webp" alt="MasterCard">
+                    <img src="Assets/images/Icons/amex.webp" alt="American Express">
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Dunkin Donuts Perú. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filtrado de locales
+            const filtroBtns = document.querySelectorAll('.filtro-btn');
+            const locales = document.querySelectorAll('.local-card');
+            
+            filtroBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Quitar clase activa a todos los botones
+                    filtroBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Añadir clase activa al botón clickeado
+                    btn.classList.add('active');
+                    
+                    // Obtener filtro seleccionado
+                    const filtro = btn.getAttribute('data-filter');
+                    
+                    // Mostrar u ocultar locales según el filtro
+                    locales.forEach(local => {
+                        if (filtro === 'todos') {
+                            local.style.display = 'block';
+                        } else if (filtro === 'abiertos') {
+                            // Aquí iría lógica para comprobar si están abiertos basado en hora actual
+                            // Por ejemplo:
+                            const horaActual = new Date().getHours();
+                            const horarioTexto = local.querySelector('.local-hours').textContent;
+                            const horaApertura = parseInt(horarioTexto.split(':')[0]);
+                            const horaCierre = parseInt(horarioTexto.split(' - ')[1].split(':')[0]) + 12; // Convertir a 24h
+                            
+                            if (horaActual >= horaApertura && horaActual < horaCierre) {
+                                local.style.display = 'block';
+                            } else {
+                                local.style.display = 'none';
+                            }
+                        } else if (filtro === local.getAttribute('data-zona')) {
+                            local.style.display = 'block';
+                        } else {
+                            local.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

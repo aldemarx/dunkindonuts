@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f3f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header y Logo */
+.brand-header {
+    background-color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand-logo {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Contenedor principal */
+.checkout-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Encabezado de checkout */
+.checkout-header {
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.checkout-header:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #FF671F, #FFC2B4);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.checkout-header h1 {
+    color: #FF671F;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.checkout-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Contenido del checkout (formulario y resumen) */
+.checkout-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Estilos para el resumen del pedido */
+.order-summary {
+    flex: 1;
+    min-width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-summary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #FF671F, #FFC2B4);
+}
+
+.order-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.order-summary h2 {
+    color: #FF671F;
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed #f0f0f0;
+    position: relative;
+}
+
+.order-items {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+/* Estilizar scrollbar */
+.order-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.order-items::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.order-items::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.order-items::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.order-item:hover {
+    background-color: #fcfcfc;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-details {
+    flex: 1;
+    padding-right: 15px;
+}
+
+.item-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.item-quantity-price {
+    color: #777;
+    font-size: 14px;
+}
+
+.item-total {
+    font-weight: 700;
+    color: #FF671F;
+    font-size: 15px;
+}
+
+.order-total {
+    background-color: #fff9f5;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 10px;
+    border: 1px dashed #ffdacf;
+}
+
+.order-total span {
+    color: #FF671F;
+    margin-left: 5px;
+}
+
+/* Estilos para el formulario */
+.checkout-form {
+    flex: 1.2;
+    min-width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.checkout-form:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #FF671F, #FFC2B4);
+}
+
+.checkout-form h2 {
+    color: #FF671F;
+    font-size: 22px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed #f0f0f0;
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+    font-size: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.form-control:focus {
+    border-color: #FF671F;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 103, 31, 0.1);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+/* Estilos para los radio buttons */
+.delivery-options {
+    margin: 25px 0;
+    background-color: #fff9f5;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #ffdacf;
+}
+
+.delivery-options > label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 12px;
+    display: block;
+    font-size: 15px;
+}
+
+.radio-group {
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.radio-group label {
+    margin-left: 30px;
+    position: relative;
+    cursor: pointer;
+    padding: 6px 0;
+    display: inline-block;
+    color: #555;
+    font-weight: 500;
+}
+
+.radio-group label:before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked + label:before {
+    border-color: #FF671F;
+}
+
+.radio-group input[type="radio"]:checked + label:after {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #FF671F;
+}
+
+.radio-group label:hover:before {
+    border-color: #FF671F;
+}
+
+/* Secciones de dirección y selección de local */
+.delivery-address, .local-select {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón de confirmar */
+.btn-confirm {
+    background: linear-gradient(to right, #FF671F, #FF8347);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 103, 31, 0.3);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-confirm:hover {
+    background: linear-gradient(to right, #E05200, #FF671F);
+    box-shadow: 0 6px 15px rgba(255, 103, 31, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-confirm:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(255, 103, 31, 0.4);
+}
+
+.btn-confirm:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.btn-confirm:hover:before {
+    left: 100%;
+}
+
+/* Área de comentarios */
+textarea.form-control {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    padding: 25px 20px;
+    background-color: #FF671F;
+    color: white;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .checkout-content {
+        flex-direction: column;
+    }
+    
+    .checkout-header h1 {
+        font-size: 26px;
+    }
+    
+    .order-summary, .checkout-form {
+        width: 100%;
+    }
+    
+    .radio-group label {
+        font-size: 14px;
+    }
+}
+
+/* Animaciones adicionales */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Notificación de éxito */
+.success-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Tooltip informativo */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+    cursor: help;
+}
+
+.tooltip i {
+    color: #999;
+    font-size: 16px;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Selección local */
+select.form-control {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23999" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+}
+
+/* Efecto focus para los inputs */
+.form-control:focus {
+    border-color: #FF671F;
+    box-shadow: 0 0 0 3px rgba(255, 103, 31, 0.2);
+}
