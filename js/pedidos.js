@@ -46,7 +46,7 @@ function loadSavedCartItems() {
         // Mostrar mensaje si no hay productos en el carrito
         savedCartItems.innerHTML = `
             <div class="no-orders-message">
-                <img src="empty-cart.png" alt="Carrito vacío" class="empty-icon">
+                <img src="assets/empty-cart.webp" alt="Carrito vacío" class="empty-icon">
                 <h2>Tu carrito está vacío</h2>
                 <p>No tienes productos guardados en tu carrito</p>
                 <a href="index.html" class="order-now-button">Explorar productos</a>
@@ -208,7 +208,7 @@ function loadOrderHistory() {
     if (orderHistory.length === 0) {
         ordersList.innerHTML = `
             <div class="no-orders-message">
-                <img src="empty-orders.png" alt="No hay pedidos" class="empty-icon">
+                <img src="assets/empty-cart.webp" alt="No hay pedidos" class="empty-icon">
                 <h2>No tienes pedidos anteriores</h2>
                 <p>Una vez que realices un pedido, aparecerá aquí</p>
                 <a href="index.html" class="order-now-button">Hacer mi primer pedido</a>
