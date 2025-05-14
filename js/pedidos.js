@@ -188,13 +188,13 @@ function loadOrderHistory() {
                     title: 'Big Deal', 
                     price: 59.50, 
                     quantity: 1,
-                    imgSrc: 'asssets/images/productos/producto6.webp'
+                    imgSrc: 'assets/images/productos/producto6.webp'
                 },
                 { 
                     title: 'Brown Shakin', 
                     price: 12.90, 
                     quantity: 2,
-                    imgSrc: 'asssets/images/novedad/novedad1.webp'
+                    imgSrc: 'assets/images/novedad/novedad1.webp'
                 }
             ],
             total: 85.30
